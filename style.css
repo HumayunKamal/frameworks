@@ -1,0 +1,58 @@
+:root {
+    /* Colors */
+    --bg: #f3fcf0;
+    --surface: #e7f0e5;
+    --text: #161d16;
+
+    --primary: #6a0029;
+    --secondary: #356668;
+    --accent: #1a3254;
+
+    --border: #8a7174;
+    --error: #ba1a1a;
+
+    /* Typography */
+    --font-heading: "Newsreader", serif;
+    --font-body: "Manrope", sans-serif;
+
+    /* Radius */
+    --radius: 0.5rem;
+    --radius-lg: 1rem;
+
+    /* Spacing */
+    --space-sm: 12px;
+    --space-md: 24px;
+    --space-lg: 48px;
+}
+
+[data-theme="dark"] {
+    --bg: #0d150f;
+    --surface: #1a221a;
+    --text: #dce5d9;
+
+    --primary: #ffb2bf;
+    --secondary: #9ecfd1;
+    --accent: #b0c7f1;
+
+    --border: #564145;
+    --error: #ffb4ab;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+}
+
+.button {
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius);
+}
