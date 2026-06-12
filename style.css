@@ -1,9 +1,8 @@
 :root {
     /* Brand Colors */
-    --primary: #8b1a3e;
-    --on-primary: #ffffff;
-    --secondary: #d4ddd1;
     --background: #F8F8FA;
+    --primary: #6A0029;
+    --secondary: #564145;
     --tertiary: #49635e;
 
     /* Hue */
@@ -49,7 +48,7 @@
     box-sizing: border-box;
 }
 
-
+/* Background Animation */
 @property --hue1 {
     syntax: "<angle>";
     inherits: false;
@@ -66,6 +65,8 @@ body {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     scroll-behavior: smooth;
+    cursor: none;
+
 
     background-color: var(--background);
     /* background-image: linear-gradient(in oklch longer hue to right,
@@ -85,6 +86,7 @@ body {
 
 }
 
+/* Background Circles */
 .hue_circles div:nth-child(1) {
     position: absolute;
     left: 5dvw;
@@ -137,6 +139,47 @@ body {
     box-shadow: 0 0 30px var(--circle-bg-1);
 }
 
+@media screen and (max-width: 640px) {
+    body {
+        cursor: default;
+    }
+
+    #cursor-dot,
+    #cursor-ring {
+        display: none !important;
+    }
+}
+
+/* CUSTOM CURSOR */
+#cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+}
+
+#cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid var(--primary);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.12s cubic-bezier(0.23, 1, 0.32, 1), width 0.3s,
+        height 0.3s, border-color 0.3s;
+}
+
 h1,
 h2 {
     font-family: 'Newsreader', serif;
@@ -152,6 +195,7 @@ section {
     place-items: center;
 }
 
+/* Background Animation */
 
 @keyframes anim_bg {
     0% {
@@ -165,6 +209,8 @@ section {
     }
 }
 
+
+/* Dark Mode */
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -188,3 +234,19 @@ section {
         --on-surface-variant: #c1c9be;
     }
 }
+
+
+
+/* body:has(a:hover) #cursor-dot,
+body:has(.card:hover) #cursor-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--c-accent2);
+}
+
+body:has(a:hover) #cursor-ring,
+body:has(.card:hover) #cursor-ring {
+    width: 64px;
+    height: 64px;
+    border-color: var(--c-accent2);
+} */
